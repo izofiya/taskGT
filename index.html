@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Form</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <form action="#" id="formInfo">
+        <h2>Пожалуйста, заполните анкету</h2>
+        <h3>Общие данные</h3>
+        <p>Имя: <input id="nameForm" type="text" placeholder="Ваше имя"/></p>
+        <p>Фамилия: <input id="name2Form" type="text" placeholder="Ваша фамилия"/></p>
+        <p>Отчество: <input id="name3Form" type="text" placeholder="Ваше отчество"/></p>
+        <p>Дата рождения: <input id="dateForm" type="date" name="date" /></p>
+        <h3>Образование</h3>
+        <p>Учреждение образования: <input type="text" placeholder="Ваше образование"/></p>
+        <p>Факультет: <input type="text" placeholder="Ваш факультет"/></p>
+        <p>Специализация: <input type="text" placeholder="Ваша специализация"/></p>
+        <p>Год завершения: <input type="month" name="monthYear"/></p>
+        <h3>Контактная информация</h3>
+        <p>Телефон: <input type="tel" name="phone" pattern="[0-9]{3}-[0-9]{2}-[0-9]{2}"/><span> формат: 111-11-11</span>
+        <p>E-mail: <input type="email"placeholder="e-mail"/><span></span></p>
+        <p>Скайп: <input  type="text" placeholder="skype"/><span></span></p>
+        <p>Телеграмм: <input  type="text"  placeholder="telegram"/><span></span></p>
+        <p>Сайт: <input type="url" placeholder="URL"></p>
+        <p><input type="submit" value="Ok"></p>
+    </form>
+    <div id="infoModal">
+        <h3>Общие данные</h3>
+        <p>Имя: <span id="name"></span></p>
+        <p>Фамилия: <span id="name2"></span></p>
+        <p>Отчество: <span id="name3"></span></p>
+        <p>Дата рождения: <span id="date"></span></p>
+        <h3>Образование</h3>
+        <p>Учреждение образования: <span id="educat"></span></p>
+        <p>Факультет: <span id="educat2"></span></p>
+        <p>Специализация: <span id="educat3"></span></p>
+        <p>Год завершения: <span id="educat4"></span></p>
+        <h3>Контактная информация</h3>
+        <p>Телефон: <span id="phone"></span><span> формат: 111-11-11</span>
+        <p>E-mail: <span id="email"></span></p>
+        <p>Скайп: <span id="skype"></span></p>
+        <p>Телеграмм: <span id="telegram"></span></p>
+        <p>Сайт: <span id="url"></span></p>
+    </div>
+    <script src="src/index.js"></script>
+</body>
+</html>

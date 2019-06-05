@@ -1,0 +1,12 @@
+body {
+    position: relative;
+}
+#infoModal {
+    width: 600px;
+    background-color: #d0f7ea;
+    min-height: 600px;
+    position: absolute;
+    top: 20px;
+    left: 500px;
+    display: none;
+}
