@@ -1,34 +1,72 @@
+let form = document.querySelector('#divForm');
 let infoModal = document.getElementById('infoModal');
-let name = document.getElementById('name');
-let name2 = document.getElementById('name2');
-let name3 = document.getElementById('name3');
-let date = document.getElementById('date');
-let educat = document.getElementById('educat');
-let educat2 = document.getElementById('educat2');
-let educat3 = document.getElementById('educat3');
-let educat4 = document.getElementById('educat4');    
-let phone = document.getElementById('phone'); 
-let email = document.getElementById('email'); 
-let skype = document.getElementById('skype'); 
-let telegram = document.getElementById('telegram');
-let url = document.getElementById('url');
+let print = document.getElementById('print');
+let contentForModel = '';
+let inputImg = document.getElementById('inputImg');
+let dataURL = '';
 
-let nameForm = document.getElementById('nameForm');
-let name2Form = document.getElementById('name2Form');
-let name3Form = document.getElementById('name3Form');
-let dateForm = document.getElementById('dateForm');
-document.getElementById('formInfo').addEventListener('submit', function(evt){
+function exit() {
+    infoModal.style.display = "none";
+    form.style.display = "block";
+};
+
+function getJson() {
+    let arrP = infoModal.querySelectorAll("p");
+    let arrPValue = [];
+
+    for(let i = 0; i < arrP.length-1; i++) {
+        arrPValue.push(arrP[i].innerText);
+    }
+    let arrJson = JSON.stringify(arrPValue);
+    infoModal.style.display = "none";
+    let jsonFile = document.createElement("div");
+    jsonFile.textContent = arrJson;
+    let valueJson = document.body.appendChild(jsonFile);
+    return valueJson;
+};
+
+inputImg.addEventListener('change', function(evt) {
+    let input = evt.target;
+
+    let reader = new FileReader();
+    reader.onload = function(){
+      dataURL = reader.result;
+      let output = document.getElementById('output');
+      output.src = dataURL;
+    };
+    reader.readAsDataURL(input.files[0]);
+  });
+ 
+document.getElementById('formInfo').addEventListener('submit', function(evt) {
     evt.preventDefault();
-    infoModal.style.display = "block";
-    name.textContent = nameForm.value;
-    name2.textContent = name2Form.value;
-    name3.textContent = name3Form.value;
-    date.textContent = dateForm.value;
-    // console.log(allInfo.value);
-    // let arr = [];
-    // for(let i = 0; i < allInfo.value.length; i++) {
-    //     arr.push(allInfo.value[i]);
-    // }
-    // console.log(arr);
-    // infoModal.textContent = arr;
-})
+    infoModal.style.display = "inline-block";
+    form.style.display = "none";
+   
+    let inputs = document.getElementsByTagName("input");
+    let arrValueInputs = [];
+    for(let i = 0; i < inputs.length-2; i++) {
+        arrValueInputs.push(inputs[i].value);
+    }
+   
+    infoModal.innerHTML = `
+    <button id="print" onClick="window.print()">print</button>
+    <button id="exit" onClick="exit()">exit</button>
+    <button id="getJson" onClick="getJson()">download</button>
+    <h3>Общие данные</h3>
+    <p>Имя: <span id="name">${arrValueInputs[0]}</span></p>
+    <p>Фамилия: <span id="name2">${arrValueInputs[1]}</span></p>
+    <p>Отчество: <span id="name3">${arrValueInputs[2]}</span></p>
+    <p>Дата рождения: <span id="date">${arrValueInputs[3]}</span></p>
+    <h3>Образование</h3>
+    <p>Учреждение образования: <span id="educat">${arrValueInputs[4]}</span></p>
+    <p>Факультет: <span id="educat2">${arrValueInputs[5]}</span></p>
+    <p>Специализация: <span id="educat3">${arrValueInputs[6]}</span></p>
+    <p>Год завершения: <span id="educat4">${arrValueInputs[7]}</span></p>
+    <h3>Контактная информация</h3>
+    <p>Телефон: <span id="phone">${arrValueInputs[8]}</span>
+    <p>E-mail: <span id="email">${arrValueInputs[9]}</span></p>
+    <p>Скайп: <span id="skype">${arrValueInputs[10]}</span></p>
+    <p>Телеграмм: <span id="telegram">${arrValueInputs[11]}</span></p>
+    <p>Сайт: <span id="url">${arrValueInputs[12]}</span></p>
+    <p>Фото: <img src=${dataURL} width="300" alt="photo"/></p>`
+});

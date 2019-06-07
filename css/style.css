@@ -1,12 +1,119 @@
 body {
     position: relative;
 }
+h2 {
+    text-align: center;
+    color: #a925ea;
+}
 #infoModal {
-    width: 600px;
-    background-color: #d0f7ea;
+    text-decoration: none;
+    outline: none;
+    width: auto;
     min-height: 600px;
     position: absolute;
     top: 20px;
     left: 500px;
     display: none;
+    color: white;
+    padding: 20px 30px;
+    margin: 10px 20px;
+    border-radius: 10px;
+    font-family: 'Montserrat', sans-serif;
+    letter-spacing: 2px;
+    background-image: linear-gradient(to right, #9EEFE1 0%, #4830F0 51%, #9EEFE1 100%);
+    background-size: 200% auto;
+    box-shadow: 0 0 20px rgba(0,0,0,.1);
+    transition: .5s;
+}
+#infoModal:hover {
+    background-position: right center;
+}
+form {
+    display: block;
+}
+p {
+    margin: 0px;
+}
+input {
+    width: 100%;
+    padding: 6px 50px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 2px solid #633b8a;
+    border-radius: 4px;
+    box-sizing: border-box;
+    font-size: 15px;
+}
+input:focus {
+    background-color: #230e50;
+    color: white;
+}
+input[type=submit] {
+    text-decoration: none;
+    outline: none;
+    display: inline-block;
+    padding: 15px 30px;
+    border-radius: 10px;
+    box-shadow: 0 0 40px 40px #11226d inset, 0 0 0 0 #11226d;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: bold;
+    letter-spacing: 2px;
+    color: white;
+    transition: .15s ease-in-out;
+}
+input[type=submit]:hover {
+    box-shadow: 0 0 10px 0 #11226d inset, 0 0 10px 4px #11226d;
+    color: #11226d;
+}
+input[type=file] {
+    border: none;
+}
+#divForm {
+    margin: 0 auto;
+    width: 50%;
+    border-radius: 20px;
+    background-color: #e6dcfb;
+    padding: 5px;
+}
+#output {
+    width: 300px;
+}
+legend {
+    font-style: italic;
+    font-size: larger;
+}
+#print, #exit, #getJson {
+    text-decoration: none;
+    outline: none;
+    display: inline-block;
+    width: 100px;
+    height: 70px;
+    line-height: 50px;
+    border-radius: 45px;
+    margin: 10px 20px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 10px;
+    text-transform: uppercase;
+    text-align: center;
+    letter-spacing: 3px;
+    font-weight: 600;
+    color: #524f4e;
+    background: white;
+    box-shadow: 0 8px 15px rgba(0,0,0,.1);
+    transition: .3s;
+}
+#print:hover, #exit:hover, #getJson:hover {
+    background: #2EE59D;
+    box-shadow: 0 15px 20px rgba(46,229,157,.4);
+    color: white;
+    transform: translateY(-7px);
+}
+@media print { 
+#infoModal {
+    width: auto;
+    min-height: 600px;
+    position: absolute;
+    top: 20px;
+    left: 100px;
+}
 }
